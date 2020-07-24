@@ -20,6 +20,10 @@ def main(dias_simulados):
 
 def grafica_total(x_dias, y_casos):
     #plt.plot(x_dias, est_y)
+    plt.title('COVID-19 outbreak daily simulation')
+    plt.xlabel('Days simulated')
+    plt.ylabel('Daily new cases')
+
     plt.plot(x_dias, y_casos)
     grafica_entera = plt.show()
     
