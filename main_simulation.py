@@ -16,15 +16,21 @@ def main(dias_simulados):
     #coeffs = np.polyfit(x_dias, y_casos, 1)
     #print(f'Coeficientes: {coeffs}')
  
-    return grafica_total(x_dias, y_casos)
+    return grafica_diaria(x_dias, y_casos)
 
-def grafica_total(x_dias, y_casos):
-    #plt.plot(x_dias, est_y)
+def grafica_diaria(x_dias, y_casos):
+    """ A modo de prueba, se usa modelo determinista"""   
+    y_recuperados = []
+    for i in y_casos:
+        y = i * 0.10 
+        y_recuperados.append(y)
+    plt.scatter(x_dias, y_recuperados, label='recovered')
+    
     plt.title('COVID-19 outbreak daily simulation')
     plt.xlabel('Days simulated')
     plt.ylabel('Daily new cases')
 
-    plt.plot(x_dias, y_casos)
+    plt.plot(x_dias, y_casos, label='new cases')
     grafica_entera = plt.show()
     
     return grafica_entera
