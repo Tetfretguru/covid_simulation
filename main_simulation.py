@@ -31,25 +31,18 @@ def grafica_diaria(x_dias, y_casos):
     plt.ylabel('Daily new cases')
 
     plt.plot(x_dias, y_casos, label='new cases')
-    grafica_entera = plt.show()
-    
-    return grafica_entera
 
 def grafica_total(x_dias, y_casos):
-    """ A modo de prueba, se usa modelo determinista"""   
-    y_casos_totales = []
+    y_acumulados = []
 
-    y_casos_totales.append(y_casos[0])
-    #solucionar esto de abajo
     i = 0
-    j = 1
-    while i < len(y_casos) - 1:
-        while j <= len(y_casos) -1:
-            y_casos_totales.append(y_casos[i]+y_casos[i+1]+y_casos_totales[j])
-            i += 1
-        j += 1
+    v = y_casos[i] + y_casos[i+1]
+    y_acumulados.append(v)
     
-    print(y_casos_totales)
+    while  i < len(y_casos) - 1:
+        v = v + (y_casos[i] + y_casos[i+1])
+        y_acumulados.append(v)
+        i += 1 
 
     #plt.scatter(x_dias, y_casos_totales, label='recovered')
     
@@ -61,6 +54,10 @@ def grafica_total(x_dias, y_casos):
     grafica_acumulados = plt.show()
     
     return grafica_acumulados
+
+
+
+   
 
 
 
