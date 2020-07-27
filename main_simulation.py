@@ -19,8 +19,19 @@ def main(dias_simulados):
     return grafica_total(x_dias, y_casos)
 
 def grafica_total(x_dias, y_casos):
+    y_acumulados = []
+
+    i = 0
+    v = y_casos[i] + y_casos[i+1]
+    y_acumulados.append(v)
+    
+    while  i < len(y_casos) - 1:
+        v = v + (y_casos[i] + y_casos[i+1])
+        y_acumulados.append(v)
+        i += 1 
+
     #plt.plot(x_dias, est_y)
-    plt.plot(x_dias, y_casos)
+    plt.plot(x_dias, y_acumulados)
     grafica_entera = plt.show()
     
     return grafica_entera
