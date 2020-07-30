@@ -22,6 +22,7 @@ def main(dias_simulados):
 
         0 - Casos nuevos diarios
         1 - Casos totales acumulados
+        2 - Casos muertes acumuladas
 
         """
     opcion = input(menu)
@@ -30,6 +31,8 @@ def main(dias_simulados):
         return graf.grafica_diaria(x_dias, y_casos)
     elif opcion == '1':
         return graf.grafica_total(x_dias, y_casos)
+    elif opcion == '2':
+        return graf.grafica_total_muertes(x_dias, y_casos)    
     else:
         print('Ingrese opción vñalida')
 
