@@ -5,6 +5,7 @@ class Country:
         self.continent = continent
         self.population = population
         self.active_cases = active_cases
+        self.total_cases = total_cases
     
 
 
