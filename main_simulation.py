@@ -39,7 +39,7 @@ def main(simulados_a, simulados_b, y_casos,sub_choice):
 def run():
     
     dias_simulados = f""" Al momento de ejecución de este script, hay un total de
-        {len(pais.pais.active_cases) - 1}  /{len(pais.paistotal_cases)} / {len(pais.pais.total_deaths)} días simulados. Tiene las siguientes opciones:
+        {len(pais.pais.active_cases) - 1}  /{len(pais.pais.total_cases)} / {len(pais.pais.total_deaths)} días simulados. Tiene las siguientes opciones:
         
         1. Simular el total de días 
         2. Simular por segmentos
