@@ -140,12 +140,20 @@ def run():
  
  
 if __name__ == '__main__':
-  run()
+
+    """
+    1. Crear un menu que me permita elegir los países y modelos precargados
+    2. Con los datos extraídos se guardan en un scope global.
+    3. Una consulta en consola que me permita generar un prototipo simulado 
+    con los datos limpios del template (país precargado)
+    4. Cargar el dataset para posterior entrenamiento IA
+
+    """
+    run()
   
-  while True:
-    rep = input('¿Simular nuevamente? (s/n): ')
- 
-    if rep == 's':
-      run()
-    else:
-      break
+    while True:
+        rep = input('¿Simular nuevamente? (s/n): ')
+        if rep == 's':
+            run()
+        else:
+            break

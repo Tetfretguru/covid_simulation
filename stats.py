@@ -1,5 +1,6 @@
 import numpy as np
 import alta_pais as alta_pais
+import math
  
 def regresion(x_dias, y_casos):
     #Regresión lineal - transformamos vectores
@@ -22,9 +23,33 @@ def regresion(x_dias, y_casos):
     print(f'Y axis fitting: {est_y}')
     print(' ')
     print('_____'*20)
-    media = (max(est_y) - min(est_y))/ len(est_y)
-    media_b = (max(y_casos) - min(y_casos)) / len(y_casos)
-    print(f'La media x:y es  {media}')
-    print(f'La media Y es {media_b}')
+
+    #Estimado de Y
+    mu = mean(vector = est_y)
+    var = varianza(vector = est_y)
+    sigma = desviacion_std(vector = est_y)
+
+    #Vector Y
+    mu_y = mean(vector = y_casos)
+    var_y = varianza(vector = y_casos)
+    sigma_y = desviacion_std(vector = y_casos)
+
+
+    print(f'Estimado de Y -> media: {mu} varianza: {var} sigma {sigma}')
+    print(f'Vector de Y -> media: {mu_y} varianza: {var_y} sigma {sigma_y}')
     print('______'*20)
     return est_y
+
+def mean(vector):
+    return sum(vector) / len(vector)
+
+def varianza(vector):
+    mu = mean(vector)
+    acumulador = 0
+
+    for v in vector:
+        acumulador += (v - mu)**2
+    return acumulador / len(vector)
+
+def desviacion_std(vector):
+    return varianza(vector) ** 0.5
