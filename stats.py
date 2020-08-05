@@ -1,4 +1,5 @@
 import numpy as np
+import alta_pais as alta_pais
  
 def regresion(x_dias, y_casos):
     #Regresión lineal - transformamos vectores
@@ -22,6 +23,8 @@ def regresion(x_dias, y_casos):
     print(' ')
     print('_____'*20)
     media = (max(est_y) - min(est_y))/ len(est_y)
-    print(f'Media "y" : {media}' )
+    media_b = (max(y_casos) - min(y_casos)) / len(y_casos)
+    print(f'La media x:y es  {media}')
+    print(f'La media Y es {media_b}')
     print('______'*20)
     return est_y

@@ -57,19 +57,19 @@ def run():
         option_2 = input(sub_menu)
  
         if option_2 == 'a':
-            y_casos = active_cases
+            y_casos = pais.pais.active_cases
             simulados_a = 0
             simulados_b = len(y_casos) - 1
             sub_choice = option_2
             main(simulados_a, simulados_b, y_casos, sub_choice)
         elif option_2 == 'b':
-            y_casos = total_cases
+            y_casos = pais.pais.total_cases
             simulados_a = 0
             simulados_b = len(y_casos) - 1
             sub_choice = option_2
             main(simulados_a, simulados_b, y_casos, sub_choice)
         elif option_2 == 'c':
-            y_casos = total_deaths
+            y_casos = pais.pais.total_deaths
             simulados_a = 0
             simulados_b = len(y_casos) - 1
             sub_choice = option_2
@@ -91,7 +91,7 @@ def run():
             print('Ingrese el rango "desde/hasta" respectivamente: ')
             simulados_a = int(input('Desde día #: '))
             simulados_b = int(input('Hasta día #: '))
-            y_casos = daily_cases
+            y_casos = pais.pais.active_cases
             if str(simulados_a) == True or str(simulados_b) == True:
                 print('ERROR: Solo puede ingresar valores enteros.')
                 run()
@@ -106,7 +106,7 @@ def run():
             print('Ingrese el rango "desde/hasta" respectivamente: ')
             simulados_a = int(input('Desde día #: '))
             simulados_b = int(input('Hasta día #: '))
-            y_casos = total_cases
+            y_casos = pais.pais.total_cases
             if str(simulados_a) == True or str(simulados_b) == True:
                 print('ERROR: Solo puede ingresar valores enteros.')
                 run()
@@ -121,7 +121,7 @@ def run():
             print('Ingrese el rango "desde/hasta" respectivamente: ')
             simulados_a = int(input('Desde día #: '))
             simulados_b = int(input('Hasta día #: '))
-            y_casos = total_cases
+            y_casos = pais.pais.total_deaths
             if str(simulados_a) == True or str(simulados_b) == True:
                 print('ERROR: Solo puede ingresar valores enteros.')
                 run()
