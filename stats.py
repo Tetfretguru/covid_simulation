@@ -1,38 +1,27 @@
-import random
-
-
-def muertos(x_dias, y_casos):
-    y_deaths = []
-    
-    for i in y_casos:
-        y = i / (100 / 38.9) #Porcentaje mundial
-        y_deaths.append(y)
-    return y_deaths
-
-def recuperados(x_dias, y_casos):
-    y_recuperados = []
-
-    for i in y_casos:
-        y = i / (100 / 62.3) # Porcentaje mundial
-        y_recuperados.append(y)
-    return y_recuperados
-
-def acumulados(x_dias, y_casos):
-    y_acumulados = []
-
-    # Se suman todos los casos acumulados positivos
-    i = 0
-    y_acumulados.append(y_casos[i])
-    i = 1
-
-    k = 0 # Será el valor del indice para el slice
-
-    while  i < len(y_casos) and k < len(y_casos): 
-        delta_y_acumulados = y_acumulados[k::]
-        v = sum(delta_y_acumulados) + y_casos[i]
-        y_acumulados.append(v)
-        k += 1
-        i += 1
-
-    print(f'Total positivos: {y_acumulados}') #Sean totales, rec o deaths
-    return y_acumulados 
+import numpy as np
+ 
+def regresion(x_dias, y_casos):
+    #Regresión lineal - transformamos vectores
+    x_dias = np.array(x_dias)
+    y_casos = np.array(y_casos)
+ 
+    #Con polyfit calculamos polinomio de la fución
+    coeffs = np.polyfit(x_dias, y_casos, 3) #Función cúbica
+    print(f'Estos son los coeficientes {coeffs}')
+    print('______'*20)
+ 
+    #Cada coeficiente del vector
+    a = coeffs[0]
+    b = coeffs[1]
+    c = coeffs[2]
+    d = coeffs[3]
+ 
+    #Gráfica de 3 raíces
+    est_y =  a*x_dias**3 + b*x_dias**2 + c*x_dias + d
+    print(f'Y axis fitting: {est_y}')
+    print(' ')
+    print('_____'*20)
+    media = (max(est_y) - min(est_y))/ len(est_y)
+    print(f'Media "y" : {media}' )
+    print('______'*20)
+    return est_y
