@@ -20,7 +20,7 @@ def grafica_activos_diarios(x_dias, y_casos):
     plt.xlabel('Days simulated')
     plt.ylabel('Daily new cases')
  
-    plt.plot(x_dias, y_casos, label='New cases')
+    plt.plot(x_dias, y_casos, label='Active cases')
     plt.plot(x_dias, estimado_y, label='Polyfit')
     plt.legend(loc='best')
     grafica_diarios = plt.show()

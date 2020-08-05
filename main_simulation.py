@@ -21,7 +21,7 @@ def main(simulados_a, simulados_b, y_casos,sub_choice):
     
     print(f'Días en curso: {x_dias}')
     print('___' * 20)
-    print(f'Casos nuevos por día: {y_casos}')
+    print(f'Casos activos por día: {y_casos}')
     print('___' * 20)
     
 
